@@ -21,27 +21,35 @@ int main() {
   // start of for loop
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 4; j++) {
-      int count = j + 1;
-      cout << "Inner loop, Enter:" << count << "\t";
-      cin >> double_array[i][j];
-      count++;
-    }
-    int count2 = 1;
-    cout << "outerloop " << count2 << "\n";
-    count2++;
-  }
+      int rows = 4;                 // set size of array using variables
+      int cols = 4;                 // set size of array using variables
+      int double_array[rows][cols]; // initialize array
+                                    // start input for loop
+      for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) { // nested for loop
+          int count = j + 1;
+          cout << "Inner loop, Enter:" << count << "\t";
+          cin >> double_array[i][j];
+          count++;
+        }
+        int count2 = 1;
+        cout << "outerloop " << count2 << "\n";
+        count2++;
+        // cout << "\t";
+        //  cout << "outerloop" << i << endl;
+      }
 
-  cout << "The numbers you typed as follows: " << "\n";
-  for (int i = 0; i < 4; i++) {
-    for (int j = 0; j < 4; j++) {
-      // int count = j;
-      cout << double_array[i][j] << "\t";
-      // count++;
-    }
-    // cout << double_array[i] << "\t";
-    cout << "\n";
-    //    cout << "\t";
-  }
+      cout << "The numbers you typed as follows: " << "\n";
+      for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+          // int count = j;
+          cout << double_array[i][j] << "\t";
+          // count++;
+        }
+        // cout << double_array[i] << "\t";
+        cout << "\n";
+        //    cout << "\t";
+      }
 
-  return 0;
-}
+      return 0;
+    }
