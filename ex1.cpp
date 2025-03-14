@@ -15,10 +15,10 @@
 using namespace std;
 
 int main() {
-  int rows = 4;
+  int rows = 4; // use row/cols vars for size of array
   int cols = 4;
-  int double_array[rows][cols];
-
+  int double_array[rows][cols]; // initialise array
+  // start of for loop
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 4; j++) {
       int count = j + 1;
