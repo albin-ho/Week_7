@@ -26,9 +26,8 @@ int main() {
       cin >> double_array[i][j];
       count++;
     }
-    int count2 = i + 1;
+    int count2 = 1;
     cout << "outerloop " << count2 << "\n";
-    // cout << "\n";
     count2++;
   }
 
