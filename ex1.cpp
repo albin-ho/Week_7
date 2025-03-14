@@ -21,12 +21,25 @@ int main() {
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 4; j++) {
       int count = j;
-      cout << "Inner loop, Enter:" << count << "\n";
+      cout << "Inner loop, Enter:" << count << "\t";
       cin >> double_array[i][j];
       count++;
     }
     cout << "\n";
     cout << "outerloop" << i << endl;
   }
+
+  cout << "The numbers you typed as follows: " << "\n";
+  for (int i = 0; i < 4; i++) {
+    for (int j = 0; j < 4; j++) {
+      int count = j;
+      cout << double_array[i][j] << "\t";
+      count++;
+    }
+    // cout << double_array[i] << "\t";
+    cout << "\n";
+    //    cout << "\t";
+  }
+
   return 0;
 }
