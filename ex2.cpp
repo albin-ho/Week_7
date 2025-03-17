@@ -17,11 +17,29 @@ using namespace std;
 const int rows = 4; //
 const int cols = 4;
 
-// Function returns true/false
-bool checkif_symmetric(int in_array[rows][cols], int N_loops) {
+//// Function returns true/false, using compare int i and j
+// bool checkif_symmetric(int in_array[rows][cols], int N_loops) {
+//   for (int i = 0; i < N_loops; i++)
+//     for (int j = 0; j < N_loops; j++)
+//       if (in_array[i][j] != in_array[j][i])
+//         return false;
+//   return true;
+// }
+
+// create a transposed array to see if its symmetric
+void transpose(int in_array[rows][cols], int tr_array[rows][cols],
+               int N_loops) {
   for (int i = 0; i < N_loops; i++)
     for (int j = 0; j < N_loops; j++)
-      if (in_array[i][j] != in_array[j][i])
+      tr_array[i][j] = in_array[j][i];
+}
+
+bool checkif_symmetric(int in_array[rows][cols], int N_loops) {
+  int trans[N_loops][cols];
+  transpose(in_array, trans, N_loops);
+  for (int i = 0; i < N_loops; i++)
+    for (int j = 0; j < N_loops; j++)
+      if (in_array[i][j] != trans[i][j])
         return false;
   return true;
 }
@@ -42,11 +60,11 @@ void display_array(int array_in[rows][cols]) {
 
 int main() {
   int double_array[rows][cols]; // initialise array
-  int total_input;
+  int total_input = rows * cols;
   cout << "This program demonstrates a 2D array" << "\n";
   cout << "The array has " << rows << " rows and " << cols << " columns"
        << "\n";
-  total_input = rows * cols;
+  // total_input = rows * cols;
   cout << "Please enter " << total_input << " numbers below:" << "\n";
 
   // start input for loop
@@ -57,19 +75,16 @@ int main() {
       cin >> double_array[i][j];
       count++;
     }
-    // int count2 = 1;
-    // cout << "outerloop " << count2 << "\n";
-    // count2++;
-    //  cout << "outerloop" << i << endl;
     cout << "\n";
   }
   // call function to display array
   display_array(double_array);
 
-  if (checkif_symmetric(double_array, total_input))
-    cout << "The array IS symmetric!" << "\n";
+  // Call function to check if array is symmetric
+  if (checkif_symmetric(double_array, 4))
+    cout << "The array IS symmetric!" << endl;
   else
-    cout << "The array is NOT symmetric!" << "\n";
+    cout << "The array is NOT symmetric!" << endl;
 
   return 0;
 }
