@@ -26,8 +26,8 @@ int main() {
   cout << "Please enter " << total_input << " numbers below:" << "\n";
 
   // start input for loop
-  for (int i = 0; i < 4; i++) {
-    for (int j = 0; j < 4; j++) { // nested for loop
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < cols; j++) { // nested for loop
       int count = j + 1;
       cout << "Enter:" << count << "\t";
       cin >> double_array[i][j];
@@ -41,8 +41,8 @@ int main() {
   }
 
   cout << "The numbers you typed as follows: " << "\n";
-  for (int i = 0; i < 4; i++) {
-    for (int j = 0; j < 4; j++) {
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < cols; j++) {
       // int count = j;
       cout << double_array[i][j] << "\t";
       // count++;
