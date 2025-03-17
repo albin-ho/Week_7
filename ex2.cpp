@@ -1,0 +1,75 @@
+// Program Purpose:ex2, Program to check if array is symmetric from a[i][j] to
+// a[j][i] Author: Last Modified:17/03/2025
+//
+//**********************************************************************************
+// #include <cmath>
+// #include <cstdlib>
+#include <iostream>
+// #include <string>
+// #include <vector>
+// #include <iomanip>
+// #include <ctime>
+// #include <fstream>
+// #include <iostream>
+using namespace std;
+// declare rows and cols as global constants
+// so array can be passed to function
+const int rows = 4; //
+const int cols = 4;
+
+// Function returns true/false
+bool checkif_symmetric(int in_array[rows][cols], int N_loops) {
+  for (int i = 0; i < N_loops; i++)
+    for (int j = 0; j < N_loops; j++)
+      if (in_array[i][j] != in_array[j][i])
+        return false;
+  return true;
+}
+
+void display_array(int array_in[rows][cols]) {
+  cout << "The numbers you typed as follows: " << "\n";
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < cols; j++) {
+      // int count = j;
+      cout << array_in[i][j] << "\t";
+      // count++;
+    }
+    // cout << double_array[i] << "\t";
+    cout << "\n";
+    //    cout << "\t";
+  }
+}
+
+int main() {
+  int double_array[rows][cols]; // initialise array
+  int total_input;
+  cout << "This program demonstrates a 2D array" << "\n";
+  cout << "The array has " << rows << " rows and " << cols << " columns"
+       << "\n";
+  total_input = rows * cols;
+  cout << "Please enter " << total_input << " numbers below:" << "\n";
+
+  // start input for loop
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < cols; j++) { // nested for loop
+      int count = j + 1;
+      cout << "Enter:" << count << "\t";
+      cin >> double_array[i][j];
+      count++;
+    }
+    // int count2 = 1;
+    // cout << "outerloop " << count2 << "\n";
+    // count2++;
+    //  cout << "outerloop" << i << endl;
+    cout << "\n";
+  }
+  // call function to display array
+  display_array(double_array);
+
+  if (checkif_symmetric(double_array, total_input))
+    cout << "The array IS symmetric!" << "\n";
+  else
+    cout << "The array is NOT symmetric!" << "\n";
+
+  return 0;
+}
